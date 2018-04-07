@@ -30,6 +30,13 @@ app.use(function(req, res, next) {
    next();
 });
 
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/bootstrapv4'));
+app.use(express.static(__dirname + '/images'));
+
+app.get('/index', function(req, res) {
+    res.render('pages/index');
+});
 // Models
 /*var tuts = mongoose.model('tutorial', {
     type: {type: String, required: true},//para/title
